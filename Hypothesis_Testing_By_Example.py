@@ -75,3 +75,57 @@ the population proportion of females with heart disease.
 
 
 '''
+
+#### Question 3 ########
+########################
+'''
+Check if the mean RestBP is great than 135.
+============================================================
+
+So here we are going to test the mean against a known value.
+our hypothesis should be:
+    h0: m=135
+    ha: m>153
+
+this is a one-sided t-test. we need to confirm its hypothesis first:
+   1- The sample should be a simple random sample.
+   2- The data need to be normally distributed.
+
+'''
+import seaborn as sns
+from scipy import stats
+
+
+sns.distplot(heart['trestbps'])
+## let's test the normality with shapiro test
+stats.shapiro(heart['trestbps'])
+
+#pvalue of the test is not significant
+
+
+m=heart['trestbps'].mean()
+
+
+'''
+In scipy there is no direct way to indicate that we want to run 
+a one-tailed variant of the test. 
+However, to obtain the desired results we adjust the output ourselves. 
+In the case of this setting, we simply need to divide the p-value by 2 
+(the test statistic stays the same).
+
+'''
+from scipy import stats
+
+
+
+t_test = stats.ttest_1samp(heart['trestbps'], 135)
+
+## one sided t-test's p-value is:
+p_val=t_test.pvalue/2    
+
+'''
+
+There is only a 0.05% probability that we will see the observed result is true when the null hypothesis is true.
+So, we reject the null hypothesis and accept the alternative hypothesis 
+based on this sample data.
+'''
