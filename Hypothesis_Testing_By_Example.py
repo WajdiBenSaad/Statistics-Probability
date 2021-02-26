@@ -129,3 +129,32 @@ There is only a 0.05% probability that we will see the observed result is true w
 So, we reject the null hypothesis and accept the alternative hypothesis 
 based on this sample data.
 '''
+
+
+#### Question 4 ########
+########################
+'''
+Hypothesis Testing for the Difference in Mean
+test if there is any difference between the mean RestBP of females 
+to the mean RestBP of males
+============================================================
+our hypothesis should be:
+    
+    h0: m_males = m_females
+    ha: m_males <> m_females
+
+This is a 2 sample t-test:
+    
+'''
+females_=heart.loc[heart['sex']==1,['trestbps']]
+males_=heart.loc[heart['sex']==0,['trestbps']]
+
+t, p = stats.ttest_ind(females_, males_, equal_var=False)
+
+'''
+there is approximately 35% probability that the observed result or more extreme is true when the null hypothesis is true.
+
+In another way, the p-value is much bigger than the significance level. 
+So, we fail to reject the null hypothesis.
+
+'''
