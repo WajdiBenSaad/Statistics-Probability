@@ -1,5 +1,22 @@
 
 '''
+################################################################################
+# Practical examples of probability calculation  with python
+# Authod : Wajdi Ben Saad       | December 2020.  | V.01
+# for citation, please link to my website :
+# www.WajdiBenSaad.com 
+# Not to be used for commercial purposes.
+# Thanks to Google & Stackoverflow for helping to provide the matrials
+################################################################################
+This code covers some practical aspects of calculating probability using python
+It is needless to say that the theoratical understanding of these concepts is crucial.
+The code is extremely simplified and split to answer each question individually.
+This should not be use as it is in a production context.
+More work should be done into making more flexible functions .
+Please use this for educational purposes only!!!!
+'''
+
+'''
 Poker.. probability and chance
 '''
 
