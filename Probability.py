@@ -53,3 +53,79 @@ queen_of_hearts_probability = event_probability(queen_of_hearts, cards)
 print(str(heart_probability) )
 print(str(face_card_probability) )
 print(str(queen_of_hearts_probability) )
+
+
+#Probability with Combinations and Permutations
+# =============================================
+
+# Permutations Code
+import math
+n = 4
+k = 2
+
+# Determine permutations and print result
+Permutations = math.factorial(n) / math.factorial(k)
+
+print(Permutations)
+
+'''
+finding the number of starting hand combinations 
+that can be dealt in Texas Hold’em.
+'''
+
+
+
+# Combinations Code
+n = 52
+k = 2
+
+# Determine Permutations
+Permutations = math.factorial(n) / math.factorial(n - k)
+
+# Determine Combinations and print result
+Combinations = Permutations / math.factorial(k)
+print(Combinations)
+
+
+'''
+the probability of drawing an Ace on the second draw, 
+if the first card drawn was either a King or an Ace:
+
+'''
+
+# Sample Space
+cards = 52
+cards_drawn = 1 
+cards = cards - cards_drawn 
+
+# Determine the probability of drawing an Ace after drawing a King on the first draw
+aces = 4
+ace_probability1 = event_probability(aces, cards)
+
+# Determine the probability of drawing an Ace after drawing an Ace on the first draw
+aces_drawn = 1
+aces = aces - aces_drawn
+ace_probability2 = event_probability(aces, cards)
+
+# Print each probability
+print(ace_probability1)
+print(ace_probability2)
+
+
+
+#### simulating a coin toss
+import random
+def coin_trial():
+    heads = 0
+    for i in range(100):
+        if random.random() <= 0.5:
+            heads +=1
+    return heads
+
+def simulate(n):
+    trials = []
+    for i in range(n):
+        trials.append(coin_trial())
+    return(sum(trials)/n)
+
+simulate(10)
